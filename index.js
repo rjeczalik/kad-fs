@@ -46,7 +46,7 @@ KadFSAdapter.prototype.get = function(key, callback) {
         return callback(err);
       }
 
-      callback(null, JSON.parse(contents.toString()));
+      callback(null, contents.toString());
     });
   });
 };
