@@ -6,7 +6,7 @@
 
 var fs = require('fs');
 var assert = require('assert');
-var stream = require('stream');
+var stream = require('readable-stream');
 
 /**
  * Constructs a Kad FS storage adapter
