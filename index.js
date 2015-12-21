@@ -105,7 +105,7 @@ KadFSAdapter.prototype.createReadStream = function() {
         }
 
         current++;
-        stream.push({ key: key, value: JSON.parse(contents) });
+        stream.push({ key: key, value: contents.toString() });
       });
     }
   });

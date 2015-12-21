@@ -1,6 +1,6 @@
 {
   "name": "kad-fs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a simple file based storage adapter for kad",
   "main": "index.js",
   "scripts": {
