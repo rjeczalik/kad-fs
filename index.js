@@ -35,7 +35,7 @@ function KadFSAdapter(datadir) {
  */
 KadFSAdapter.prototype.get = function(key, callback) {
   var self = this;
-
+  key = new Buffer(key, 'utf8').toString('base64');
   fs.exists(self.datadir + key, function(exists) {
     if (!exists) {
       return callback(new Error('Not found'));
@@ -59,6 +59,7 @@ KadFSAdapter.prototype.get = function(key, callback) {
  * @param {Function} callback
  */
 KadFSAdapter.prototype.put = function(key, value, callback) {
+  key = new Buffer(key, 'utf8').toString('base64');
   fs.writeFile(this.datadir + key, value, callback);
 };
 
@@ -70,6 +71,7 @@ KadFSAdapter.prototype.put = function(key, value, callback) {
  */
 KadFSAdapter.prototype.del = function(key, callback) {
   var self = this;
+  key = new Buffer(key, 'utf8').toString('base64');
 
   fs.exists(self.datadir + key, function(exists) {
     if (!exists) {
@@ -98,6 +100,7 @@ KadFSAdapter.prototype.createReadStream = function() {
       if (!key) {
         return stream.push(null);
       }
+      key = new Buffer(key, 'utf8').toString('base64');
 
       fs.readFile(adapter.datadir + key, function(err, contents) {
         if (err) {
